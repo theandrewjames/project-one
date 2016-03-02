@@ -32,6 +32,12 @@ var items = [
   price: "$47"
 }];
 
+function suggestions() {
+  var go = document.getElementById("search-box").value;
+  console.log(go);
+};
+var search = document.getElementById("search-box");
+search.addEventListener("keyup", suggestions);
 
 
 
@@ -221,7 +227,7 @@ function updateTotal() {
   var total = 0;
   var prices = document.getElementsByClassName("cart-price");
   for (var i = 0;i < prices.length;i++) {
-    total += parseInt(prices[i].innerHTML, 10);
+    total += parseInt(prices[i].textContent, 10);
   };
   var remove = document.getElementById("sum-total");
   var parent = document.getElementById("sum-total").parentNode;
@@ -233,10 +239,3 @@ function updateTotal() {
   var text = document.createTextNode(total);
   sum.appendChild(text);
 }
-
-function takeToCart() {
-  
-}
-
-var checkoutButton = document.getElementById("checkout-button");
-checkoutbutton.addEventListener("click", takeToCart);
