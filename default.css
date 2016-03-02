@@ -1,0 +1,52 @@
+#logo-pic {
+  width: 90px;
+  height: 30px;
+  margin-left: 10px;
+};
+
+.navbar {
+  height: 100px;
+}
+
+.search-bar {
+  padding-top: 10px;
+}
+
+
+
+.shopping-cart {
+  border-radius: 10px;
+  position: fixed;
+  width: 320px;
+  margin-right: 100px;
+}
+
+.cart-heading {
+  text-align: center;
+}
+
+.price {
+  text-align: center;
+}
+
+.item {
+  padding-top: 10px;
+}
+
+
+.panel-body {
+  height: 260px;
+};
+
+
+.phones {
+
+}
+
+.phones {
+  padding-left: 20px;
+}
+
+.new-books {
+  padding-left: 10px;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="default.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://www.amazon.com">
+            <img alt="logo" src="/users/andrewvelasquez/downloads/amazon-underground-hits-the-streets.png" id="logo-pic">
+          </a>
+        </div>
+        <div class="row search-bar">
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-warning" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-13 ad">
+          <img src="/users/andrewvelasquez/downloads/32183_sdd_same-day_refresh_gw-superhero_1500x300_V299206213_._CB299747532_.jpg" alt="prime-ad" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row new-books">
+            <h3><span class="label label-default">New Books</span></h3>
+            <div class="col-md-2 item">
+              <div class="panel panel-default">
+                <div class="panel-heading">Future Crimes</div>
+                <div class="panel-body">
+                  <img src="/users/andrewvelasquez/downloads/41mpdV2VqdL._SX325_BO1,204,203,200_.jpg" class="img-responsive item-picture img-thumbnail">
+                </div>
+                  <div class="panel-footer">
+                    <p class="price">$17</p>
+                    <p><a href="#" class="btn btn-primary btn-block" id="addFutureButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-2 item">
+              <div class="panel panel-default">
+                <div class="panel-heading">Dead Wake</div>
+                <div class="panel-body">
+                  <img src="/users/andrewvelasquez/downloads/51+kAdUZOyL.jpg" class="img-responsive item-picture img-thumbnail">
+                </div>
+                <div class="panel-footer">
+                  <p class="price">$17</p>
+                  <p><a href="#" class="btn btn-primary btn-block" id="addDeadButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 item">
+              <div class="panel panel-default">
+                <div class="panel-heading">Finders Keepers</div>
+                <div class="panel-body">
+                  <img src="/users/andrewvelasquez/downloads/81EJz58T3CL.jpg" class="img-responsive img-thumbnail">
+                </div>
+                <div class="panel-footer">
+                  <p class="price">$15</p>
+                  <p><a href="#" class="btn btn-primary btn-block" id="addFindersButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 item">
+              <div class="panel panel-default">
+                <div class="panel-heading">Bobs Burgers</div>
+                <div class="panel-body">
+                  <img src="/users/andrewvelasquez/downloads/517mGhxQ+WL.jpg" class="img-responsive img-thumbnail">
+                </div>
+                <div class="panel-footer">
+                  <p class="price">$13</p>
+                  <p><a href="#" class="btn btn-primary btn-block" id="addBobsButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 ">
+              <div class="panel panel-default shopping-cart">
+                <div class="panel-heading cart-heading">Shopping Cart</div>
+                <table class="table" id="shopping-cart">
+                  <th></th>
+                  <th>Item</th>
+                  <th>Price $</th>
+                  <tr id="shoppingTotal">
+                    <td></td>
+                    <th>Total:</th>
+                    <td id="sum-total"></td>
+                  </tr>
+                </table>
+                  <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row phones">
+          <h3><span class="label label-default">Video Games</span></h3>
+          <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-3 item">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Fallout 4</div>
+                    <div class="panel-body">
+                      <img src="/users/andrewvelasquez/downloads/81aoDmHE7hL._SL1500_.jpg" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="panel-footer">
+                      <p class="price">$40</p>
+                      <p><a href="#" class="btn btn-primary btn-block" id="addFalloutButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 item">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Resident Evil Origins</div>
+                    <div class="panel-body">
+                      <img src="/users/andrewvelasquez/downloads/81LFcvyvMPL._SL1500_.jpg" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="panel-footer">
+                      <p class="price">$40</p>
+                      <p><a href="#" class="btn btn-primary btn-block" id="addResidentEvilButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 item">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">GTA V</div>
+                    <div class="panel-body">
+                      <img src="/users/andrewvelasquez/downloads/915vV-zIhmL._SL1500_.jpg" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="panel-footer">
+                      <p class="price">$40</p>
+                      <p><a href="#" class="btn btn-primary btn-block" id="add-gta-button" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 item">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">The Last of Us</div>
+                    <div class="panel-body">
+                      <img src="/users/andrewvelasquez/downloads/51fR72yjSFL.jpg" class="img-responsive img-thumbnail">
+                    </div>
+                    <div class="panel-footer">
+                      <p class="price">$47</p>
+                      <p><a href="#" class="btn btn-primary btn-block" id="last-of-us-button" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="default.js"></script>
+  </body>
+</html>
