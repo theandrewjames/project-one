@@ -34,7 +34,25 @@ var items = [
 
 function suggestions() {
   var go = document.getElementById("search-box").value;
-  console.log(go);
+  for (var i =0;i < items.length;i++) {
+    if(go == items[i].name) {
+      console.log(items[i].name)
+      var newDiv = document.createElement("div");
+      newDiv.className = "media";
+      var divBody = document.createElement("div");
+      divBody.className = "media-body media-left";
+      var divHeading = document.createElement("h4");
+      var heading = document.createTextNode(items[i].name);
+      divHeading.appendChild(heading);
+      var divPrice = document.createTextNode(items[i].price);
+      divBody.appendChild(divHeading);
+      divBody.appendChild(divPrice);
+      newDiv.appendChild(divBody);
+      var searchBox = document.getElementById("search-suggestion");
+      searchBox.appendChild(newDiv);
+
+    }
+  }
 };
 var search = document.getElementById("search-box");
 search.addEventListener("keyup", suggestions);

@@ -50,3 +50,7 @@
 .new-books {
   padding-left: 10px;
 }
+
+#search-suggestions {
+  z-index: 10;
+}
