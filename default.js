@@ -233,3 +233,10 @@ function updateTotal() {
   var text = document.createTextNode(total);
   sum.appendChild(text);
 }
+
+function takeToCart() {
+  
+}
+
+var checkoutButton = document.getElementById("checkout-button");
+checkoutbutton.addEventListener("click", takeToCart);
