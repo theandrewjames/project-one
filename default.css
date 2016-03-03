@@ -51,6 +51,9 @@
   padding-left: 10px;
 }
 
-#search-suggestions {
+#search-suggestion {
+  position: absolute;
   z-index: 10;
+  background-color: white;
+  
 }
