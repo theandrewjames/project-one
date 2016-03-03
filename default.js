@@ -47,7 +47,7 @@ function suggestions() {
     if(go.toLowerCase() == items[i].name.toLowerCase()) {
       console.log(items[i].name)
       var newDiv = document.createElement("div");
-      newDiv.className = "media panel panel-default";
+      newDiv.className = "media panel panel-default first-suggestion";
       var divBody = document.createElement("div");
       divBody.className = "media-body media-left";
       var divHeading = document.createElement("h4");
@@ -262,13 +262,15 @@ function updateTotal() {
   newData.id = "sum-total";
   parent.appendChild(newData);
   var sum = document.getElementById("sum-total");
-  var text = document.createTextNode(total);
+  var text = document.createTextNode("$" + total);
   sum.appendChild(text);
 }
 
 function openPaymentForm() {
   var paymentForm = document.getElementById("payment-form");
   paymentForm.classList.toggle("hidden");
+  var cartTotal = document.getElementById("sum-total");
+  shoppingTotal.className = "bg-success";
 };
 
 var checkoutButton = document.getElementById("checkout-button");
