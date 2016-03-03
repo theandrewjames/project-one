@@ -35,10 +35,10 @@ var items = [
 function suggestions() {
   var go = document.getElementById("search-box").value;
   for (var i =0;i < items.length;i++) {
-    if(go == items[i].name) {
+    if(go.toLowerCase() == items[i].name.toLowerCase()) {
       console.log(items[i].name)
       var newDiv = document.createElement("div");
-      newDiv.className = "media";
+      newDiv.className = "media panel panel-default";
       var divBody = document.createElement("div");
       divBody.className = "media-body media-left";
       var divHeading = document.createElement("h4");
