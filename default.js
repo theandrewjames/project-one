@@ -69,7 +69,6 @@ search.addEventListener("keyup", suggestions);
 
 
 
-
 function addFutureToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
@@ -266,3 +265,11 @@ function updateTotal() {
   var text = document.createTextNode(total);
   sum.appendChild(text);
 }
+
+function openPaymentForm() {
+  var paymentForm = document.getElementById("payment-form");
+  paymentForm.classList.toggle("hidden");
+};
+
+var checkoutButton = document.getElementById("checkout-button");
+checkoutButton.addEventListener("click", openPaymentForm);
