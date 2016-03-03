@@ -1,35 +1,44 @@
 var items = [
 {
     name: "Future Crimes",
-    price: "$17"
+    price: "Price: $17",
+    author: "by Marc Goodman"
 },
 {
     name: "Dead Wake",
-    price: "$17"
+    price: "$17",
+    author: "by Erik Larson"
 },
 {
   name: "Finders Keepers",
-  price: "$15"
+  price: "$15",
+  author: "by Stephen King"
 },
 {
   name: "Bobs Burgers",
-  price: "$13"
+  price: "$13",
+  author: "by Loren Bouchard"
 },
 {
   name: "Fallout 4",
-  price: "$40"
+  price: "$40",
+  author: "for PS4"
 },
 {
   name: "Resident Evil Origins",
-  price: "$40"
+  price: "$40",
+  author: "for PS4"
 },
 {
   name: "GTA V",
-  price: "$40"
+  price: "$40",
+  author: "for PS4"
+
 },
 {
   name: "The Last Of Us",
-  price: "$47"
+  price: "$47",
+  author: "for PS4"
 }];
 
 function suggestions() {
@@ -42,7 +51,7 @@ function suggestions() {
       var divBody = document.createElement("div");
       divBody.className = "media-body media-left";
       var divHeading = document.createElement("h4");
-      var heading = document.createTextNode(items[i].name);
+      var heading = document.createTextNode(items[i].name + " " + items[i].author);
       divHeading.appendChild(heading);
       var divPrice = document.createTextNode(items[i].price);
       divBody.appendChild(divHeading);
