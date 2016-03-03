@@ -59,7 +59,6 @@ function suggestions() {
       newDiv.appendChild(divBody);
       var searchBox = document.getElementById("search-suggestion");
       searchBox.appendChild(newDiv);
-
     }
   }
 };
