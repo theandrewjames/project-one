@@ -308,6 +308,7 @@ function openPaymentForm() {
   paymentForm.classList.toggle("hidden");
   var cartTotal = document.getElementById("sum-total");
   shoppingTotal.className = "bg-success";
+
 };
 
 var checkoutButton = document.getElementById("checkout-button");
