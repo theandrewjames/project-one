@@ -1,44 +1,52 @@
 var items = [
 {
     name: "Future Crimes",
-    price: "Price: $17",
-    author: "by Marc Goodman"
+    price: "$17",
+    author: "Marc Goodman",
+    media: "Hardcover"
 },
 {
     name: "Dead Wake",
     price: "$17",
-    author: "by Erik Larson"
+    author: "Erik Larson",
+    media: "Hardcover"
 },
 {
   name: "Finders Keepers",
   price: "$15",
-  author: "by Stephen King"
+  author: "Stephen King",
+  media: "Hardcover"
 },
 {
   name: "Bobs Burgers",
   price: "$13",
-  author: "by Loren Bouchard"
+  author: "Loren Bouchard",
+  media: "Paperback"
 },
 {
   name: "Fallout 4",
   price: "$40",
-  author: "for PS4"
+  author: "Bethesda",
+  media: "PS4"
 },
 {
   name: "Resident Evil Origins",
   price: "$40",
-  author: "for PS4"
+  author: "Capcom",
+  media: "PS4"
 },
 {
   name: "GTA V",
   price: "$40",
-  author: "for PS4"
+  author: "Rockstar Games",
+  media: "PS4"
 
 },
 {
   name: "The Last Of Us",
   price: "$47",
-  author: "for PS4"
+  author: "Sony",
+  media: "PS4"
 }];
 
 function suggestions() {
@@ -51,9 +59,39 @@ function suggestions() {
       var divBody = document.createElement("div");
       divBody.className = "media-body media-left";
       var divHeading = document.createElement("h4");
-      var heading = document.createTextNode(items[i].name + " " + items[i].author);
+      var heading = document.createTextNode(items[i].name + " - " + items[i].media);
       divHeading.appendChild(heading);
-      var divPrice = document.createTextNode(items[i].price);
+      var divPrice = document.createTextNode("By " + items[i].author + " - " + items[i].price);
+      divBody.appendChild(divHeading);
+      divBody.appendChild(divPrice);
+      newDiv.appendChild(divBody);
+      var searchBox = document.getElementById("search-suggestion");
+      searchBox.appendChild(newDiv);
+    }
+    else if(go.toLowerCase() == items[i].media.toLowerCase()) {
+      var newDiv = document.createElement("div");
+      newDiv.className = "media panel panel-default first-suggestion";
+      var divBody = document.createElement("div");
+      divBody.className = "media-body media-left";
+      var divHeading = document.createElement("h4");
+      var heading = document.createTextNode(items[i].name + " by " + items[i].author);
+      divHeading.appendChild(heading);
+      var divPrice = document.createTextNode(items[i].media + " - " + items[i].price);
+      divBody.appendChild(divHeading);
+      divBody.appendChild(divPrice);
+      newDiv.appendChild(divBody);
+      var searchBox = document.getElementById("search-suggestion");
+      searchBox.appendChild(newDiv);
+    }
+    else if(go.toLowerCase() == items[i].author.toLowerCase()) {
+      var newDiv = document.createElement("div");
+      newDiv.className = "media panel panel-default first-suggestion";
+      var divBody = document.createElement("div");
+      divBody.className = "media-body media-left";
+      var divHeading = document.createElement("h4");
+      var heading = document.createTextNode(items[i].name + " by " + items[i].author);
+      divHeading.appendChild(heading);
+      var divPrice = document.createTextNode(items[i].media + " - " + items[i].price);
       divBody.appendChild(divHeading);
       divBody.appendChild(divPrice);
       newDiv.appendChild(divBody);
