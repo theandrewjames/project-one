@@ -381,6 +381,8 @@ function appendReview() {
     itemReviews.appendChild(text);
     submitted.appendChild(itemReviews);
     console.log(items[currentItem].reviews)
+    var reviewPanel = document.getElementById("reviews-panel");
+    reviewPanel.classList.remove("hidden");
   };
 }
 
