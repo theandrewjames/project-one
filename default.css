@@ -39,11 +39,11 @@
 };
 
 
-.phones {
+.games {
 
 }
 
-.phones {
+.games {
   padding-left: 20px;
 }
 
@@ -63,4 +63,12 @@
 
 h3 {
   margin-left: 19px;
+}
+
+#review-picture {
+  height: 150px;
+}
+
+#review-box {
+  margin-top: 5px;
 }

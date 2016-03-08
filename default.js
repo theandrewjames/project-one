@@ -4,49 +4,56 @@ var items = [
     price: "$17",
     author: "Marc Goodman",
     media: "Hardcover",
-    dataId: 0
+    dataId: 0,
+    image: "images/41mpdV2VqdL._SX325_BO1,204,203,200_.jpg"
 },
 {
     name: "Dead Wake",
     price: "$17",
     author: "Erik Larson",
     media: "Hardcover",
-    dataId: 1
+    dataId: 1,
+    image: "images/51+kAdUZOyL.jpg"
 },
 {
   name: "Finders Keepers",
   price: "$15",
   author: "Stephen King",
   media: "Hardcover",
-  dataId: 2
+  dataId: 2,
+  image: "images/81EJz58T3CL.jpg"
 },
 {
   name: "Bobs Burgers",
   price: "$13",
   author: "Loren Bouchard",
   media: "Paperback",
-  dataId: 3
+  dataId: 3,
+  image: "images/517mGhxQ+WL.jpg"
 },
 {
   name: "Fallout 4",
   price: "$40",
   author: "Bethesda",
   media: "PS4",
-  dataId: 4
+  dataId: 4,
+  image: "images/81aoDmHE7hL._SL1500_.jpg"
 },
 {
   name: "Resident Evil Origins",
   price: "$40",
   author: "Capcom",
   media: "PS4",
-  dataId: 5
+  dataId: 5,
+  image: "images/81LFcvyvMPL._SL1500_.jpg"
 },
 {
   name: "GTA V",
   price: "$40",
   author: "Rockstar Games",
   media: "PS4",
-  dataId: 6
+  dataId: 6,
+  image: "images/915vV-zIhmL._SL1500_.jpg"
 
 },
 {
@@ -54,7 +61,8 @@ var items = [
   price: "$47",
   author: "Sony",
   media: "PS4",
-  dataId: 7
+  dataId: 7,
+  image: "images/51fR72yjSFL.jpg"
 }];
 
 function suggestions() {
@@ -311,9 +319,6 @@ function updateTotal() {
   sum.appendChild(text);
 }
 
-//function toggleHidden(element) {
-//  element.classList.toggle("hidden");
-//}
 
 function openPaymentForm() {
   var paymentForm = document.getElementById("payment-form");
@@ -327,6 +332,15 @@ var checkoutButton = document.getElementById("checkout-button");
 checkoutButton.addEventListener("click", openPaymentForm);
 
 function hideItems() {
+  var id = this.dataset.id;
+  for(var i = 0;i < items.length;i++) {
+    if(id == items[i].dataId) {
+      var heading = document.getElementById("review-heading");
+      heading.textContent = items[i].name + " by " + items[i].author;
+      var pic = document.getElementById("review-picture");
+      pic.setAttribute("src", items[i].image)
+    }
+  }
   var item = document.getElementsByClassName("item");
   for (var i = 0;i < item.length;i++) {
     item[i].classList.toggle("hidden");
@@ -336,9 +350,8 @@ function hideItems() {
     heading[i].classList.toggle("hidden");
 
   };
-  var suggestions = document.getElementById("suggestions-box");
+  var suggestions = document.getElementById("review-box");
   suggestions.classList.toggle("hidden");
-  console.log(reviewButtons[i].parentNode);
 }
 
 var reviewButtons = document.getElementsByClassName("add-review");
