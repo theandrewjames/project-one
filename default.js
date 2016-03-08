@@ -388,3 +388,22 @@ function appendReview() {
 
 var submitReview = document.getElementById("submit-review");
   submitReview.addEventListener("click", appendReview);
+
+  function showHome() {
+    var item = document.getElementsByClassName("item");
+    for (var i = 0;i < item.length;i++) {
+      item[i].classList.remove("hidden");
+    };
+    var heading = document.getElementsByTagName("h3");
+    for(var i = 0; i < heading.length;i++) {
+      heading[i].classList.remove("hidden");
+
+    };
+    var suggestions = document.getElementById("review-box");
+    suggestions.classList.add("hidden");
+
+    var reviewPanel = document.getElementById("reviews-panel");
+    reviewPanel.classList.add("hidden");
+};
+var logoPic = document.getElementById("logo-pic");
+logoPic.addEventListener("click", showHome);
