@@ -5,7 +5,8 @@ var items = [
     author: "Marc Goodman",
     media: "Hardcover",
     dataId: 0,
-    image: "images/41mpdV2VqdL._SX325_BO1,204,203,200_.jpg"
+    image: "images/41mpdV2VqdL._SX325_BO1,204,203,200_.jpg",
+    reviews: []
 },
 {
     name: "Dead Wake",
@@ -13,7 +14,8 @@ var items = [
     author: "Erik Larson",
     media: "Hardcover",
     dataId: 1,
-    image: "images/51+kAdUZOyL.jpg"
+    image: "images/51+kAdUZOyL.jpg",
+    reviews: []
 },
 {
   name: "Finders Keepers",
@@ -21,7 +23,8 @@ var items = [
   author: "Stephen King",
   media: "Hardcover",
   dataId: 2,
-  image: "images/81EJz58T3CL.jpg"
+  image: "images/81EJz58T3CL.jpg",
+  reviews: []
 },
 {
   name: "Bobs Burgers",
@@ -29,7 +32,8 @@ var items = [
   author: "Loren Bouchard",
   media: "Paperback",
   dataId: 3,
-  image: "images/517mGhxQ+WL.jpg"
+  image: "images/517mGhxQ+WL.jpg",
+  reviews:  []
 },
 {
   name: "Fallout 4",
@@ -37,7 +41,8 @@ var items = [
   author: "Bethesda",
   media: "PS4",
   dataId: 4,
-  image: "images/81aoDmHE7hL._SL1500_.jpg"
+  image: "images/81aoDmHE7hL._SL1500_.jpg",
+  reviews: []
 },
 {
   name: "Resident Evil Origins",
@@ -45,7 +50,8 @@ var items = [
   author: "Capcom",
   media: "PS4",
   dataId: 5,
-  image: "images/81LFcvyvMPL._SL1500_.jpg"
+  image: "images/81LFcvyvMPL._SL1500_.jpg",
+  reviews: []
 },
 {
   name: "GTA V",
@@ -53,7 +59,8 @@ var items = [
   author: "Rockstar Games",
   media: "PS4",
   dataId: 6,
-  image: "images/915vV-zIhmL._SL1500_.jpg"
+  image: "images/915vV-zIhmL._SL1500_.jpg",
+  reviews: []
 
 },
 {
@@ -62,7 +69,8 @@ var items = [
   author: "Sony",
   media: "PS4",
   dataId: 7,
-  image: "images/51fR72yjSFL.jpg"
+  image: "images/51fR72yjSFL.jpg",
+  reviews: []
 }];
 
 function suggestions() {
@@ -338,7 +346,8 @@ function hideItems() {
       var heading = document.getElementById("review-heading");
       heading.textContent = items[i].name + " by " + items[i].author;
       var pic = document.getElementById("review-picture");
-      pic.setAttribute("src", items[i].image)
+      pic.setAttribute("src", items[i].image);
+      pic.setAttribute("data-id", items[i].dataId)
     }
   }
   var item = document.getElementsByClassName("item");
@@ -358,3 +367,22 @@ var reviewButtons = document.getElementsByClassName("add-review");
 for (var i = 0;i < reviewButtons.length;i++) {
   reviewButtons[i].addEventListener("click", hideItems);
 };
+
+function appendReview() {
+  var item = document.getElementById("review-picture");
+  var currentItem = item.dataset.id;
+  var userReview = document.getElementById("user-review").value;
+  items[currentItem].reviews.push(userReview);
+    if (items[currentItem].reviews.length > 0) {
+    var submitted = document.getElementById("submitted-reviews");
+    var itemReviews = document.createElement("li");
+    itemReviews.className = "list-group-item";
+    var text = document.createTextNode(items[currentItem].reviews[items[currentItem].reviews.length-1]);
+    itemReviews.appendChild(text);
+    submitted.appendChild(itemReviews);
+    console.log(items[currentItem].reviews)
+  };
+}
+
+var submitReview = document.getElementById("submit-review");
+  submitReview.addEventListener("click", appendReview);

@@ -113,9 +113,12 @@
                   <div class="media-body">
                     <h4 class="media-heading" id="review-heading"></h4>
                     <br>
-                    <label for="userReview" class="col-sm-2 control-label">Write a review:</label>
+                    <label for="user-review" class="col-sm-2 control-label">Write a review:</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="userReview">
+                      <input type="text" class="form-control" id="user-review">
+                      <button type="submit" class="btn btn-primary btn-sm form-control" id="submit-review">
+                        Submit
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -136,6 +139,11 @@
                 </table>
                   <button type="button" class="btn btn-primary btn-lg btn-block" id="checkout-button">Checkout</button>
               </div>
+            </div>
+            <div class="panel panel-default col-md-7 col-md-offset-1">
+              <div class="panel-heading">Reviews</div>
+              <ul class="list-group" id="submitted-reviews">
+              </ul>
             </div>
           </div>
         </div>
