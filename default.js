@@ -3,50 +3,58 @@ var items = [
     name: "Future Crimes",
     price: "$17",
     author: "Marc Goodman",
-    media: "Hardcover"
+    media: "Hardcover",
+    dataId: 0
 },
 {
     name: "Dead Wake",
     price: "$17",
     author: "Erik Larson",
-    media: "Hardcover"
+    media: "Hardcover",
+    dataId: 1
 },
 {
   name: "Finders Keepers",
   price: "$15",
   author: "Stephen King",
-  media: "Hardcover"
+  media: "Hardcover",
+  dataId: 2
 },
 {
   name: "Bobs Burgers",
   price: "$13",
   author: "Loren Bouchard",
-  media: "Paperback"
+  media: "Paperback",
+  dataId: 3
 },
 {
   name: "Fallout 4",
   price: "$40",
   author: "Bethesda",
-  media: "PS4"
+  media: "PS4",
+  dataId: 4
 },
 {
   name: "Resident Evil Origins",
   price: "$40",
   author: "Capcom",
-  media: "PS4"
+  media: "PS4",
+  dataId: 5
 },
 {
   name: "GTA V",
   price: "$40",
   author: "Rockstar Games",
-  media: "PS4"
+  media: "PS4",
+  dataId: 6
 
 },
 {
   name: "The Last Of Us",
   price: "$47",
   author: "Sony",
-  media: "PS4"
+  media: "PS4",
+  dataId: 7
 }];
 
 function suggestions() {
@@ -303,6 +311,10 @@ function updateTotal() {
   sum.appendChild(text);
 }
 
+//function toggleHidden(element) {
+//  element.classList.toggle("hidden");
+//}
+
 function openPaymentForm() {
   var paymentForm = document.getElementById("payment-form");
   paymentForm.classList.toggle("hidden");
@@ -313,3 +325,23 @@ function openPaymentForm() {
 
 var checkoutButton = document.getElementById("checkout-button");
 checkoutButton.addEventListener("click", openPaymentForm);
+
+function hideItems() {
+  var item = document.getElementsByClassName("item");
+  for (var i = 0;i < item.length;i++) {
+    item[i].classList.toggle("hidden");
+  };
+  var heading = document.getElementsByTagName("h3");
+  for(var i = 0; i < heading.length;i++) {
+    heading[i].classList.toggle("hidden");
+
+  };
+  var suggestions = document.getElementById("suggestions-box");
+  suggestions.classList.toggle("hidden");
+  console.log(reviewButtons[i].parentNode);
+}
+
+var reviewButtons = document.getElementsByClassName("add-review");
+for (var i = 0;i < reviewButtons.length;i++) {
+  reviewButtons[i].addEventListener("click", hideItems);
+};
