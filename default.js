@@ -73,6 +73,10 @@ var items = [
   reviews: []
 }];
 
+var previousOrders = {
+
+};
+
 function suggestions() {
   var go = document.getElementById("search-box").value;
   for (var i =0;i < items.length;i++) {
@@ -371,7 +375,6 @@ for (var i = 0;i < reviewButtons.length;i++) {
 function appendReview() {
   var reviewList = document.getElementById("submitted-reviews");
   var appendedReviews = document.getElementsByClassName("item-reviews");
-  console.log(items[0].reviews)
   for(var i = appendedReviews.length-1;i >= 0;i--) {
     reviewList.removeChild(appendedReviews[i]);
   }
@@ -412,7 +415,6 @@ var submitReview = document.getElementById("submit-review");
 
     var reviewList = document.getElementById("submitted-reviews");
     var appendedReviews = document.getElementsByClassName("item-reviews");
-    console.log(items[0].reviews)
     for(var i = appendedReviews.length-1;i >= 0;i--) {
       reviewList.removeChild(appendedReviews[i]);
     }
@@ -420,3 +422,13 @@ var submitReview = document.getElementById("submit-review");
 
 var logoPic = document.getElementById("logo-pic");
 logoPic.addEventListener("click", showHome);
+
+function submit() {
+  var userFirstName = document.getElementById("user-first-name");
+  console.log(userFirstName.value);
+  previousOrders.push(userFirstName.value);
+  console.log(previousOrders)
+}
+
+var submitButton = document.getElementById("submit-order");
+submitButton.addEventListener("click", submit);

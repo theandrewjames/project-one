@@ -72,3 +72,8 @@ h3 {
 #review-box {
   margin-top: 5px;
 }
+
+#previous-orders-button {
+  float: right;
+  margin-right: 100px;
+}
