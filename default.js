@@ -370,7 +370,7 @@ for (var i = 0;i < reviewButtons.length;i++) {
 
 function appendReview() {
   var reviewList = document.getElementById("submitted-reviews");
-  var appendedReviews = document.getElementsByClassName("list-group-item");
+  var appendedReviews = document.getElementsByClassName("item-reviews");
   console.log(items[0].reviews)
   for(var i = appendedReviews.length-1;i >= 0;i--) {
     reviewList.removeChild(appendedReviews[i]);
@@ -382,7 +382,7 @@ function appendReview() {
     for (var i = 0; i < items[currentItem].reviews.length;i++) {
     var submitted = document.getElementById("submitted-reviews");
     var itemReviews = document.createElement("li");
-    itemReviews.className = "list-group-item";
+    itemReviews.className = "list-group-item item-reviews";
     var text = document.createTextNode(items[currentItem].reviews[i]);
     itemReviews.appendChild(text);
     submitted.appendChild(itemReviews);
@@ -411,7 +411,7 @@ var submitReview = document.getElementById("submit-review");
     reviewPanel.classList.add("hidden");
 
     var reviewList = document.getElementById("submitted-reviews");
-    var appendedReviews = document.getElementsByClassName("list-group-item");
+    var appendedReviews = document.getElementsByClassName("item-reviews");
     console.log(items[0].reviews)
     for(var i = appendedReviews.length-1;i >= 0;i--) {
       reviewList.removeChild(appendedReviews[i]);
