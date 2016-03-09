@@ -73,9 +73,9 @@ var items = [
   reviews: []
 }];
 
-var previousOrders = {
+var previousOrders = [
 
-};
+]
 
 function suggestions() {
   var go = document.getElementById("search-box").value;
@@ -143,6 +143,7 @@ function addFutureToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Future Crimes");
   item.appendChild(text);
   row.appendChild(item);
@@ -166,6 +167,7 @@ function addDeadWakeToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Dead Wake");
   item.appendChild(text);
   row.appendChild(item);
@@ -188,6 +190,7 @@ function addFindersToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Finders Keepers");
   item.appendChild(text);
   row.appendChild(item);
@@ -210,6 +213,7 @@ function addBobsToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Bobs Burgers");
   item.appendChild(text);
   row.appendChild(item);
@@ -232,6 +236,7 @@ function addFalloutToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Fallout 4");
   item.appendChild(text);
   row.appendChild(item);
@@ -254,6 +259,7 @@ function addResidentEvilToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Resident Evil Origins");
   item.appendChild(text);
   row.appendChild(item);
@@ -276,6 +282,7 @@ function addGtaToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("GTA V");
   item.appendChild(text);
   row.appendChild(item);
@@ -298,6 +305,7 @@ function addLastOfUsToCart() {
   var blankData = document.createElement("td");
   row.appendChild(blankData);
   var item = document.createElement("td");
+  item.className = "cart-item";
   var text = document.createTextNode("Last Of Us");
   item.appendChild(text);
   row.appendChild(item);
@@ -425,9 +433,42 @@ logoPic.addEventListener("click", showHome);
 
 function submit() {
   var userFirstName = document.getElementById("user-first-name");
-  console.log(userFirstName.value);
-  previousOrders.push(userFirstName.value);
-  console.log(previousOrders)
+  var userLastName = document.getElementById("user-last-name");
+  var userAddress = document.getElementById("user-address");
+  var userCity = document.getElementById("user-city");
+  var userZip = document.getElementById("user-zip");
+  var userState = document.getElementById("user-state");
+  var userCountry = document.getElementById("user-country");
+  var userEmail = document.getElementById("user-email");
+  var cardholderName = document.getElementById("cardholder-name");
+  var cardNumber = document.getElementById("card-number");
+  var cardExpiration = document.getElementById("card-expiration");
+  var cardCode = document.getElementById("card-code");
+  var total = document.getElementById("sum-total");
+  var cartItems = document.getElementsByClassName("cart-item");
+  var prices = document.getElementsByClassName("cart-price");
+  var order = new Object();
+  order.items = [];
+  order.prices = [];
+  order.total = total.textContent;
+  order.firstName = userFirstName.value;
+  order.lastName = userLastName.value;
+  order.address = userAddress.value;
+  order.city = userCity.value;
+  order.zip = userZip.value;
+  order.state = userState.value;
+  order.country = userCountry.value;
+  order.email = userEmail.value;
+  order.cardholder = cardholderName.value;
+  order.cardNumber = cardNumber.value;
+  order.cardExpiration = cardExpiration.value;
+  order.cardCode = cardCode.value;
+  previousOrders.push(order);
+  for(var i = 0;i < cartItems.length;i++) {
+    order.items.push(cartItems[i].textContent);
+    order.prices.push(prices[i].textContent);
+  }
+  console.log(previousOrders);
 }
 
 var submitButton = document.getElementById("submit-order");
