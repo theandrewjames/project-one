@@ -369,18 +369,23 @@ for (var i = 0;i < reviewButtons.length;i++) {
 };
 
 function appendReview() {
+  var reviewList = document.getElementById("submitted-reviews");
+  var appendedReviews = document.getElementsByClassName("list-group-item");
+  console.log(items[0].reviews)
+  for(var i = appendedReviews.length-1;i >= 0;i--) {
+    reviewList.removeChild(appendedReviews[i]);
+  }
   var item = document.getElementById("review-picture");
   var currentItem = item.dataset.id;
   var userReview = document.getElementById("user-review").value;
   items[currentItem].reviews.push(userReview);
-    if (items[currentItem].reviews.length > 0) {
+    for (var i = 0; i < items[currentItem].reviews.length;i++) {
     var submitted = document.getElementById("submitted-reviews");
     var itemReviews = document.createElement("li");
     itemReviews.className = "list-group-item";
-    var text = document.createTextNode(items[currentItem].reviews[items[currentItem].reviews.length-1]);
+    var text = document.createTextNode(items[currentItem].reviews[i]);
     itemReviews.appendChild(text);
     submitted.appendChild(itemReviews);
-    console.log(items[currentItem].reviews)
     var reviewPanel = document.getElementById("reviews-panel");
     reviewPanel.classList.remove("hidden");
   };
@@ -404,6 +409,14 @@ var submitReview = document.getElementById("submit-review");
 
     var reviewPanel = document.getElementById("reviews-panel");
     reviewPanel.classList.add("hidden");
-};
+
+    var reviewList = document.getElementById("submitted-reviews");
+    var appendedReviews = document.getElementsByClassName("list-group-item");
+    console.log(items[0].reviews)
+    for(var i = appendedReviews.length-1;i >= 0;i--) {
+      reviewList.removeChild(appendedReviews[i]);
+    }
+}
+
 var logoPic = document.getElementById("logo-pic");
 logoPic.addEventListener("click", showHome);
