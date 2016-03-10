@@ -137,6 +137,7 @@ search.addEventListener("keyup", suggestions);
 function addFutureToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal")
   parent.insertBefore(row, total);
@@ -161,6 +162,7 @@ addFutureButton.addEventListener("click", addFutureToCart);
 function addDeadWakeToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -184,6 +186,7 @@ addDeadButton.addEventListener("click", addDeadWakeToCart);
 function addFindersToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -207,6 +210,7 @@ addFindersButton.addEventListener("click", addFindersToCart);
 function addBobsToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -230,6 +234,7 @@ addBobsButton.addEventListener("click", addBobsToCart);
 function addFalloutToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -253,6 +258,7 @@ addFalloutButton.addEventListener("click", addFalloutToCart);
 function addResidentEvilToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -276,6 +282,7 @@ addResidentEvilButton.addEventListener("click", addResidentEvilToCart);
 function addGtaToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -299,6 +306,7 @@ addGtaButton.addEventListener("click", addGtaToCart);
 function addLastOfUsToCart() {
   var cart = document.getElementById("shopping-cart");
   var row = document.createElement("tr");
+  row.className = "cart-item-row"
   var parent = document.getElementById("shoppingTotal").parentNode;
   var total = document.getElementById("shoppingTotal");
   parent.insertBefore(row, total);
@@ -319,8 +327,10 @@ function addLastOfUsToCart() {
 var addLastOfUsButton = document.getElementById("last-of-us-button");
 addLastOfUsButton.addEventListener("click", addLastOfUsToCart);
 
-var totalButton = document.getElementsByTagName("button");
-totalButton = addEventListener("click", updateTotal)
+var addCart = document.getElementsByClassName("add-cart")
+  for(var i = 0;i < addCart.length;i++) {
+    addCart[i].addEventListener("click", updateTotal)
+  };
 
 function updateTotal() {
   var total = 0;
@@ -548,15 +558,27 @@ function submit() {
 
     var pastOrderPanel = document.getElementById("past-order-panel");
     pastOrderPanel.classList.remove("hidden");
-
-
   };
 
   var ordersDropdownItems = document.getElementsByClassName("orders-dropdown-item");
   for(var i = 0;i < ordersDropdownItems.length;i++) {
     ordersDropdownItems[i].addEventListener("click", displayOrder);
   }
+  emptyCart();
 }
 
 var submitButton = document.getElementById("submit-order");
 submitButton.addEventListener("click", submit);
+
+function emptyCart() {
+  var cartRow = document.getElementsByClassName("cart-item-row");
+  var parent = cartRow[0].parentNode;
+  for(var i = cartRow.length-1;i >= 0;i--) {
+    parent.removeChild(cartRow[i]);
+  }
+  var remove = document.getElementById("sum-total");
+  var parent = document.getElementById("sum-total").parentNode;
+  remove.textContent = "";
+
+  shoppingTotal.classList.remove("bg-success");
+}
