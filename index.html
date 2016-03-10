@@ -25,7 +25,13 @@
             <div id="search-suggestion">
             </div>
           </div>
-          <button class="btn btn-primary" id="previous-orders-button" type="button">Previous Orders</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Previous Orders <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="orders-dropdown">
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -123,6 +129,45 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-md-offset-2 panel panel-default hidden" id="past-order-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title" id="past-order-heading">order</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-condensed">
+                  <tr>
+                    <th>Name:</th>
+                    <td id="past-order-name">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Address:</th>
+                    <td id="past-order-address">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Email:</th>
+                    <td id="past-order-email">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Card #</th>
+                    <td id="past-order-card">
+                    </td>
+                  </tr>
+                </table>
+                <br>
+                <table class="table table-condensed">
+                  <th>Items:</th>
+                  <th>Price:</th>
+                  <tr>
+                    <th>Total:</th>
+                    <td id="past-order-total">
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
             <div class="col-md-4" id="cart">

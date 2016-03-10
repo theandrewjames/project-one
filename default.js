@@ -468,7 +468,26 @@ function submit() {
     order.items.push(cartItems[i].textContent);
     order.prices.push(prices[i].textContent);
   }
-  console.log(previousOrders);
+  var paymentForm = document.getElementById("payment-form");
+  paymentForm.classList.toggle("hidden");
+
+  var dropdownItems = document.getElementsByClassName("orders-dropdown-item");
+  for(var i = dropdownItems.length-1;i >=0; i--) {
+    var ordersDropdown = document.getElementById("orders-dropdown");
+    ordersDropdown.removeChild(dropdownItems[i]);
+  }
+
+  for(var i = 0;i < previousOrders.length;i++) {
+    var ordersDropdown = document.getElementById("orders-dropdown");
+    var listItem = document.createElement("li");
+    listItem.className = "orders-dropdown-item"
+    var link = document.createElement("a");
+    link.setAttribute("href", "");
+    var text = document.createTextNode("Order #" + i);
+    link.appendChild(text);
+    listItem.appendChild(link);
+    ordersDropdown.appendChild(listItem);
+  }
 }
 
 var submitButton = document.getElementById("submit-order");
