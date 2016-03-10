@@ -426,6 +426,11 @@ var submitReview = document.getElementById("submit-review");
     for(var i = appendedReviews.length-1;i >= 0;i--) {
       reviewList.removeChild(appendedReviews[i]);
     }
+    var pastOrderPanel = document.getElementById("past-order-panel");
+    pastOrderPanel.classList.add("hidden");
+
+    var cart = document.getElementById("cart");
+    cart.classList.remove("hidden");
 }
 
 var logoPic = document.getElementById("logo-pic");
@@ -468,6 +473,7 @@ function submit() {
     order.items.push(cartItems[i].textContent);
     order.prices.push(prices[i].textContent);
   }
+  userFirstName.textContent = "";
   var paymentForm = document.getElementById("payment-form");
   paymentForm.classList.toggle("hidden");
 
@@ -480,13 +486,75 @@ function submit() {
   for(var i = 0;i < previousOrders.length;i++) {
     var ordersDropdown = document.getElementById("orders-dropdown");
     var listItem = document.createElement("li");
-    listItem.className = "orders-dropdown-item"
+    listItem.className = "orders-dropdown-item";
+    listItem.dataset.id = i;
     var link = document.createElement("a");
-    link.setAttribute("href", "");
-    var text = document.createTextNode("Order #" + i);
+    var text = document.createTextNode("Order #" + (i+1));
     link.appendChild(text);
     listItem.appendChild(link);
     ordersDropdown.appendChild(listItem);
+  }
+  function displayOrder() {
+    pastOrderHeading = "";
+    pastOrderName = "";
+    pastOrderAddress = "";
+    pastOrderEmail = "";
+    pastOrderCard = "";
+    var previousItemRow = document.getElementsByClassName("previous-item-row");
+    for(var i = previousItemRow.length-1;i >= 0;i--) {
+      var pastTotalRow = document.getElementById("past-total-row");
+      var parent = pastTotalRow.parentNode;
+      parent.removeChild(previousItemRow[i]);
+    }
+    var id = this.dataset.id;
+    var pastOrderHeading = document.getElementById("past-order-heading");
+    pastOrderHeading.textContent = "Order #" + (parseInt(id, 10)+1);
+    var pastOrderName = document.getElementById("past-order-name");
+    pastOrderName.textContent = previousOrders[id].firstName + " " + previousOrders[id].lastName;
+    var pastOrderAddress = document.getElementById("past-order-address");
+    pastOrderAddress.textContent = previousOrders[id].address + "," + previousOrders[id].city;
+    var pastOrderEmail = document.getElementById("past-order-email");
+    pastOrderEmail.textContent = previousOrders[id].email;
+    var pastOrderCard = document.getElementById("past-order-card");
+    pastOrderCard.textContent = previousOrders[id].cardNumber;
+    for(var i = 0;i < previousOrders[id].items.length;i++) {
+      var row = document.createElement("tr");
+      row.className = "previous-item-row"
+      var itemData = document.createElement("td");
+      var priceData = document.createElement("td");
+      var item = document.createTextNode(previousOrders[id].items[i]);
+      var price = document.createTextNode(previousOrders[id].prices[i]);
+      itemData.appendChild(item);
+      priceData.appendChild(price);
+      row.appendChild(itemData);
+      row.appendChild(priceData);
+      var pastTotalRow = document.getElementById("past-total-row");
+      var parent = pastTotalRow.parentNode;
+      parent.insertBefore(row, pastTotalRow);
+      var pastOrderTotal = document.getElementById("past-order-total");
+      pastOrderTotal.textContent = previousOrders[id].total;
+
+    }
+    var item = document.getElementsByClassName("item");
+    for (var i = 0;i < item.length;i++) {
+      item[i].classList.add("hidden");
+    };
+    var heading = document.getElementsByTagName("h3");
+    for(var i = 0; i < heading.length;i++) {
+      heading[i].classList.add("hidden");
+    };
+    var cart = document.getElementById("cart");
+    cart.classList.add("hidden");
+
+    var pastOrderPanel = document.getElementById("past-order-panel");
+    pastOrderPanel.classList.remove("hidden");
+
+
+  };
+
+  var ordersDropdownItems = document.getElementsByClassName("orders-dropdown-item");
+  for(var i = 0;i < ordersDropdownItems.length;i++) {
+    ordersDropdownItems[i].addEventListener("click", displayOrder);
   }
 }
 
