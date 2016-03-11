@@ -38,7 +38,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-13 ad">
-          <img src="images/32183_sdd_same-day_refresh_gw-superhero_1500x300_V299206213_._CB299747532_.jpg" alt="prime-ad" class="img-responsive">
+          <img src="images/32183_sdd_same-day_refresh_gw-superhero_1500x300_V299206213_._CB299747532_.jpg" alt="prime-ad" class="img-responsive" id="prime-ad">
         </div>
       </div>
       <div class="row">
@@ -53,7 +53,7 @@
                 </div>
                   <div class="panel-footer">
                     <p class="price">$17</p>
-                    <p><a class="btn btn-primary btn-block add-cart" id="addFutureButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    <p><a class="btn btn-primary btn-block add-cart add-future-button"  data-id=0 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                       <button type="button" class="btn btn-primary btn-sm add-review" data-id=0>
                         Add Review
                       </button>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="panel-footer">
                   <p class="price">$17</p>
-                  <p><a class="btn btn-primary btn-block add-cart" id="addDeadButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                  <p><a class="btn btn-primary btn-block add-cart" id="add-dead-button" data-id=1 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                     <button type="button" class="btn btn-primary btn-sm add-review" data-id=1>
                       Add Review
                     </button>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="panel-footer">
                   <p class="price">$15</p>
-                  <p><a class="btn btn-primary btn-block add-cart" id="addFindersButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                  <p><a class="btn btn-primary btn-block add-cart" id="add-finders-button" data-id=2 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                     <button type="button" class="btn btn-primary btn-sm add-review" data-id=2>
                       Add Review
                     </button>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="panel-footer">
                   <p class="price">$13</p>
-                  <p><button class="btn btn-primary btn-block add-cart" type="button" id="addBobsButton" role="button" ><i class="fa fa-shopping-cart"></i> Add to Cart</button></p>
+                  <p><button class="btn btn-primary btn-block add-cart" type="button" data-id=3 id="add-bobs-button" role="button" ><i class="fa fa-shopping-cart"></i> Add to Cart</button></p>
                     <button type="button" class="btn btn-primary btn-sm add-review" data-id=3>
                       Add Review
                     </button>
@@ -125,6 +125,107 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="panel panel-default hidden col-md-6 col-md-offset-2" id="payment-form">
+              <div class="panel-body">
+                <form class="form-horizontal" id="checkout-form">
+                  <div class="form-group">
+                    <label for="user-first-name" class="col-sm-2 control-label">First Name:</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="user-first-name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-last-name" class="col-sm-2 control-label">Last Name:</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="user-last-name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-address" class="col-sm-2 control-label">Address:</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="user-address">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-city" class="col-sm-2 control-label">City:</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="user-city">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-zip" class="col-sm-2 control-label">Zip:</label>
+                    <div class="col-sm-8">
+                      <input type="numeric" class="form-control" id="user-zip">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-state" class="col-sm-2 control-label">State:</label>
+                    <div class="col-sm-3">
+                      <select name="select" id="user-state" class="form-control">
+                        <option value="AZ">AZ</option>
+                        <option value="CA" selected>CA</option>
+                        <option value="NV">NV</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-country" class="col-sm-2 control-label">Country:</label>
+                    <div class="col-sm-3">
+                      <select name="select" id="user-country" class="form-control">
+                        <option value="usa" selected>USA</option>
+                        <option value="canada" >Canada</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="user-email" class="col-sm-2 control-label">Email:</label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" id="user-email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                      <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="sameAddress">
+                        Check if billing and shipping address are the same.
+                      </label>
+                    </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="cardholder-name" class="col-sm-2 control-label">Cardholder Name:</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="cardholder-name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-number" class="col-sm-2 control-label">Card #:</label>
+                    <div class="col-sm-6">
+                      <input type="numeric" class="form-control" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-expiration" class="col-sm-2 control-label">Expiration Date:</label>
+                    <div class="col-sm-4">
+                      <input type="number" class="form-control" id="card-expiration" placeholder="MM-YYYY">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-code" class="col-sm-2 control-label">Security Code:</label>
+                    <div class="col-sm-4">
+                      <input type="number" class="form-control" id="card-code">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="button" class="btn btn-primary btn-lg" id="submit-order">Submit Order</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="col-md-6 col-md-offset-2 panel panel-default hidden" id="past-order-panel">
@@ -182,7 +283,7 @@
                   <button type="button" class="btn btn-primary btn-lg btn-block" id="checkout-button">Checkout</button>
               </div>
             </div>
-            <div class="panel panel-default col-md-7 col-md-offset-1 hidden" id="reviews-panel">
+            <div class="panel panel-default col-md-8 hidden" id="reviews-panel">
               <div class="panel-heading">Reviews</div>
               <ul class="list-group" id="submitted-reviews">
               </ul>
@@ -201,7 +302,7 @@
                     </div>
                     <div class="panel-footer">
                       <p class="price">$40</p>
-                      <p><button type="button" class="btn btn-primary btn-block add-cart" id="addFalloutButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button></p>
+                      <p><button type="button" class="btn btn-primary btn-block add-cart" data-id=4 id="add-fallout-button" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button></p>
                         <button type="button" class="btn btn-primary btn-sm add-review" data-id=4>
                           Add Review
                         </button>
@@ -216,7 +317,7 @@
                     </div>
                     <div class="panel-footer">
                       <p class="price">$40</p>
-                      <p><a class="btn btn-primary btn-block add-cart" id="addResidentEvilButton" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                      <p><a class="btn btn-primary btn-block add-cart" id="add-resident-button" data-id=5 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                         <button type="button" class="btn btn-primary btn-sm add-review" data-id=5>
                           Add Review
                         </button>
@@ -231,7 +332,7 @@
                     </div>
                     <div class="panel-footer">
                       <p class="price">$40</p>
-                      <p><a class="btn btn-primary btn-block add-cart" id="add-gta-button" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                      <p><a class="btn btn-primary btn-block add-cart" id="add-gta-button" data-id=6 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                         <button type="button" class="btn btn-primary btn-sm add-review" data-id=6>
                           Add Review
                         </button>
@@ -246,7 +347,7 @@
                     </div>
                     <div class="panel-footer">
                       <p class="price">$47</p>
-                      <p><a class="btn btn-primary btn-block add-cart" id="last-of-us-button" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                      <p><a class="btn btn-primary btn-block add-cart" id="last-of-us-button" data-id=7 role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
                         <button type="button" class="btn btn-primary btn-sm add-review" data-id=7>
                           Add Review
                         </button>
@@ -256,113 +357,27 @@
             </div>
           </div>
         </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-5 col-md-offset-3">
-          <div class="panel panel-default hidden" id="payment-form">
-            <div class="panel-body">
-              <form class="form-horizontal" id="checkout-form">
-                <div class="form-group">
-                  <label for="user-first-name" class="col-sm-2 control-label">First Name:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="user-first-name">
-                  </div>
+        <div class="row suggestion">
+          <h3><span class="label label-default">Recommended for you</span></h3>
+          <div class="col-md-8">
+            <div class="col-md-3 item">
+              <div class="panel panel-default">
+                <div class="panel-heading" id="suggestion-heading"></div>
+                <div class="item panel-body">
+                  <img src="" id="suggestion-image" class="img-responsive img-thumbnail">
                 </div>
-                <div class="form-group">
-                  <label for="user-last-name" class="col-sm-2 control-label">Last Name:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="user-last-name">
-                  </div>
+                <div class="panel-footer">
+                  <p class="price" id="suggestion-price"></p>
+                  <p><a class="btn btn-primary btn-block add-cart" id="suggestion-add-cart" role="button"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                    <button type="button" class="btn btn-primary btn-sm add-review" id="suggestion-add-review">
+                      Add Review
+                    </button>
                 </div>
-                <div class="form-group">
-                  <label for="user-address" class="col-sm-2 control-label">Address:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="user-address">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="user-city" class="col-sm-2 control-label">City:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="user-city">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="user-zip" class="col-sm-2 control-label">Zip:</label>
-                  <div class="col-sm-8">
-                    <input type="numeric" class="form-control" id="user-zip">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="user-state" class="col-sm-2 control-label">State:</label>
-                  <div class="col-sm-3">
-                    <select name="select" id="user-state" class="form-control">
-                      <option value="AZ">AZ</option>
-                      <option value="CA" selected>CA</option>
-                      <option value="NV">NV</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="user-country" class="col-sm-2 control-label">Country:</label>
-                  <div class="col-sm-3">
-                    <select name="select" id="user-country" class="form-control">
-                      <option value="usa" selected>USA</option>
-                      <option value="canada" >Canada</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="user-email" class="col-sm-2 control-label">Email:</label>
-                  <div class="col-sm-8">
-                    <input type="email" class="form-control" id="user-email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-1 col-sm-10">
-                    <div class="checkbox">
-                    <label>
-                      <input type="checkbox" value="sameAddress">
-                      Check if billing and shipping address are the same.
-                    </label>
-                  </div>
-                  </div>
-                </div>
-                <br>
-                <div class="form-group">
-                  <label for="cardholder-name" class="col-sm-2 control-label">Cardholder Name:</label>
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="cardholder-name">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="card-number" class="col-sm-2 control-label">Card #:</label>
-                  <div class="col-sm-6">
-                    <input type="numeric" class="form-control" id="card-number" placeholder="XXXX-XXXX-XXXX-XXXX">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="card-expiration" class="col-sm-2 control-label">Expiration Date:</label>
-                  <div class="col-sm-4">
-                    <input type="number" class="form-control" id="card-expiration" placeholder="MM-YYYY">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="card-code" class="col-sm-2 control-label">Security Code:</label>
-                  <div class="col-sm-4">
-                    <input type="number" class="form-control" id="card-code">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="button" class="btn btn-primary btn-lg" id="submit-order">Submit Order</button>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
       </div>
+      <br>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

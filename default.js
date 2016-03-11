@@ -156,8 +156,11 @@ function addFutureToCart() {
 
 };
 
-var addFutureButton = document.getElementById("addFutureButton");
-addFutureButton.addEventListener("click", addFutureToCart);
+var addFutureButton = document.getElementsByClassName("add-future-button");
+for(var i = 0;i < addFutureButton.length;i++) {
+  addFutureButton[i].addEventListener("click", addFutureToCart);
+}
+
 
 function addDeadWakeToCart() {
   var cart = document.getElementById("shopping-cart");
@@ -180,7 +183,7 @@ function addDeadWakeToCart() {
   row.appendChild(itemPrice);
 }
 
-var addDeadButton = document.getElementById("addDeadButton");
+var addDeadButton = document.getElementById("add-dead-button");
 addDeadButton.addEventListener("click", addDeadWakeToCart);
 
 function addFindersToCart() {
@@ -204,7 +207,7 @@ function addFindersToCart() {
   row.appendChild(itemPrice);
 }
 
-var addFindersButton = document.getElementById("addFindersButton");
+var addFindersButton = document.getElementById("add-finders-button");
 addFindersButton.addEventListener("click", addFindersToCart);
 
 function addBobsToCart() {
@@ -228,7 +231,7 @@ function addBobsToCart() {
   row.appendChild(itemPrice);
 }
 
-var addBobsButton = document.getElementById("addBobsButton");
+var addBobsButton = document.getElementById("add-bobs-button");
 addBobsButton.addEventListener("click", addBobsToCart);
 
 function addFalloutToCart() {
@@ -252,7 +255,7 @@ function addFalloutToCart() {
   row.appendChild(itemPrice);
 }
 
-var addFalloutButton = document.getElementById("addFalloutButton");
+var addFalloutButton = document.getElementById("add-fallout-button");
 addFalloutButton.addEventListener("click", addFalloutToCart);
 
 function addResidentEvilToCart() {
@@ -276,7 +279,7 @@ function addResidentEvilToCart() {
   row.appendChild(itemPrice);
 }
 
-var addResidentEvilButton = document.getElementById("addResidentEvilButton");
+var addResidentEvilButton = document.getElementById("add-resident-button");
 addResidentEvilButton.addEventListener("click", addResidentEvilToCart);
 
 function addGtaToCart() {
@@ -354,14 +357,23 @@ function openPaymentForm() {
   var paymentForm = document.getElementById("payment-form");
   paymentForm.classList.toggle("hidden");
   var cartTotal = document.getElementById("sum-total");
-  shoppingTotal.className = "bg-success";
+  shoppingTotal.classList.toggle("bg-success");
 
+  var item = document.getElementsByClassName("item");
+  for (var i = 0;i < item.length;i++) {
+    item[i].classList.toggle("hidden");
+  };
+  var heading = document.getElementsByTagName("h3");
+  for(var i = 0; i < heading.length;i++) {
+    heading[i].classList.toggle("hidden");
+
+  };
 };
 
 var checkoutButton = document.getElementById("checkout-button");
 checkoutButton.addEventListener("click", openPaymentForm);
 
-function hideItems() {
+function addReview() {
   var id = this.dataset.id;
   for(var i = 0;i < items.length;i++) {
     if(id == items[i].dataId) {
@@ -387,7 +399,7 @@ function hideItems() {
 
 var reviewButtons = document.getElementsByClassName("add-review");
 for (var i = 0;i < reviewButtons.length;i++) {
-  reviewButtons[i].addEventListener("click", hideItems);
+  reviewButtons[i].addEventListener("click", addReview);
 };
 
 function appendReview() {
@@ -504,6 +516,18 @@ function submit() {
     listItem.appendChild(link);
     ordersDropdown.appendChild(listItem);
   }
+  var item = document.getElementsByClassName("item");
+  for (var i = 0;i < item.length;i++) {
+    item[i].classList.remove("hidden");
+  };
+  var cart = document.getElementById("cart");
+  cart.classList.toggle("hidden");
+
+  var heading = document.getElementsByTagName("h3");
+  for(var i = 0; i < heading.length;i++) {
+    heading[i].classList.toggle("hidden");
+  };
+
   function displayOrder() {
     pastOrderHeading = "";
     pastOrderName = "";
@@ -564,7 +588,11 @@ function submit() {
   for(var i = 0;i < ordersDropdownItems.length;i++) {
     ordersDropdownItems[i].addEventListener("click", displayOrder);
   }
+  var cart = document.getElementById("cart");
+  cart.classList.toggle("hidden");
+
   emptyCart();
+
 }
 
 var submitButton = document.getElementById("submit-order");
@@ -581,4 +609,38 @@ function emptyCart() {
   remove.textContent = "";
 
   shoppingTotal.classList.remove("bg-success");
+}
+
+function showSuggestion() {
+  var id = parseInt(this.dataset.id, 10);
+  if(id <= 3) {
+    var suggestionHeading = document.getElementById("suggestion-heading");
+    suggestionHeading.textContent = "";
+    suggestionHeading.textContent = items[0].name;
+    var suggestionImage = document.getElementById("suggestion-image");
+    suggestionImage.setAttribute("src", items[0].image);
+    var suggestionPrice = document.getElementById("suggestion-price");
+    suggestionPrice.textContent = items[0].price;
+    var suggestionAdd = document.getElementById("suggestion-add-cart");
+    suggestionAdd.classList.add("add-future-button");
+    var suggestionReview = document.getElementById("suggestion-add-review");
+    suggestionReview.setAttribute("data-id", items[0].dataId)
+  } else if (id >=4){
+    var suggestionHeading = document.getElementById("suggestion-heading");
+    suggestionHeading.textContent = "";
+    suggestionHeading.textContent = items[4].name;
+    var suggestionImage = document.getElementById("suggestion-image");
+    suggestionImage.setAttribute("src", items[4].image);
+    var suggestionPrice = document.getElementById("suggestion-price");
+    suggestionPrice.textContent = items[4].price;
+    var suggestionAdd = document.getElementById("suggestion-add-cart");
+    suggestionAdd.classList.add("add-fallout-button");
+    var suggestionReview = document.getElementById("suggestion-add-review");
+    suggestionReview.setAttribute("data-id", items[4].dataId)
+  }
+}
+
+var addCartButtons = document.getElementsByClassName("add-cart");
+for(var i = 0;i < addCartButtons.length;i++) {
+  addCartButtons[i].addEventListener("click", showSuggestion)
 }
