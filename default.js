@@ -613,6 +613,8 @@ function emptyCart() {
 
 function showSuggestion() {
   var id = parseInt(this.dataset.id, 10);
+  var suggestionRow = document.getElementById("suggestions");
+  suggestionRow.classList.remove("hidden");
   if(id <= 3) {
     var suggestionHeading = document.getElementById("suggestion-heading");
     suggestionHeading.textContent = "";
