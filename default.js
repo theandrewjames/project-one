@@ -255,8 +255,10 @@ function addFalloutToCart() {
   row.appendChild(itemPrice);
 }
 
-var addFalloutButton = document.getElementById("add-fallout-button");
-addFalloutButton.addEventListener("click", addFalloutToCart);
+var addFalloutButton = document.getElementsByClassName("add-fallout-button");
+for(var i = 0;i < addFalloutButton.length;i++) {
+  addFalloutButton[i].addEventListener("click", addFalloutToCart);
+};
 
 function addResidentEvilToCart() {
   var cart = document.getElementById("shopping-cart");
@@ -624,7 +626,7 @@ function showSuggestion() {
     var suggestionPrice = document.getElementById("suggestion-price");
     suggestionPrice.textContent = items[0].price;
     var suggestionAdd = document.getElementById("suggestion-add-cart");
-    suggestionAdd.classList.add("add-future-button");
+    suggestionAdd.addEventListener("click", addFutureToCart);
     var suggestionReview = document.getElementById("suggestion-add-review");
     suggestionReview.setAttribute("data-id", items[0].dataId)
   } else if (id >=4){
@@ -636,7 +638,7 @@ function showSuggestion() {
     var suggestionPrice = document.getElementById("suggestion-price");
     suggestionPrice.textContent = items[4].price;
     var suggestionAdd = document.getElementById("suggestion-add-cart");
-    suggestionAdd.classList.add("add-fallout-button");
+    suggestionAdd.addEventListener("click", addFalloutToCart)
     var suggestionReview = document.getElementById("suggestion-add-review");
     suggestionReview.setAttribute("data-id", items[4].dataId)
   }

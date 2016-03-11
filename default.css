@@ -53,6 +53,10 @@
   padding-left: 10px;
 }
 
+#suggestions {
+  padding-left: 20px;
+}
+
 #search-suggestion {
   position: absolute;
   z-index: 10;
