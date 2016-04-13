@@ -1,4 +1,5 @@
-# project-one
+# Shopazon
+This website allows you to search for items, buy items and checkout, leave reviews.
  ![Search screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon1.png)
  ![Add items to cart screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon3.png)
  ![Checkout and pay screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon4.png)
