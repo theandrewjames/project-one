@@ -1,4 +1,8 @@
-# project-one
-1. User can search for items.
-2. User can add an item to the shopping cart.
-3. User can checkout and pay.
+# Shopazon
+This website allows you to search for items, buy items and checkout, leave reviews.
+ ![Search screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon1.png)
+ ![Add items to cart screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon3.png)
+ ![Checkout and pay screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon4.png)
+ ![Add review screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon5.png)
+ ![Show previous orders screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon6.png)
+ ![Show recommended items](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon7.png)
