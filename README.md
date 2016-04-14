@@ -1,6 +1,6 @@
 # Shopazon
-[Check out Shopazon on Heroku](http://glacial-headland-31476.herokuapp.com)
-This website allows you to search for items, buy items and checkout, leave reviews.
+[Check out Shopazon on Heroku.](http://glacial-headland-31476.herokuapp.com)
+This website allows you to search & buy items, checkout, leave reviews and see your previous orders
 ## Search for items by name, or type. This will display the items name, item type, author/company and price. 
  ![Search screenshot](https://raw.githubusercontent.com/theandrewjames/shopazon/master/images/shopazon1.png)
 ## Add items to your cart by clicking on the add to cart button and your shopping cart will populate and update itself.
