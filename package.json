@@ -1,0 +1,22 @@
+{
+  "name": "shopazon",
+  "version": "1.0.0",
+  "description": "1. User can search for items. 2. User can add an item to the shopping cart. 3. User can checkout and pay.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theandrewjames/shopazon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theandrewjames/shopazon/issues"
+  },
+  "homepage": "https://github.com/theandrewjames/shopazon#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
