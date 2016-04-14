@@ -4,7 +4,8 @@
   "description": "1. User can search for items. 2. User can add an item to the shopping cart. 3. User can checkout and pay.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "app.js"
   },
   "repository": {
     "type": "git",
